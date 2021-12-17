@@ -9,8 +9,3 @@ Set-PSReadLineOption -PredictionSource History
 
 Set-PoshPrompt -Theme half-life
 Import-Module -Name Terminal-Icons
-<#
-function prompt {
-    "[$($env:Username)@$($env:COMPUTERNAME) $(Split-Path (Get-Location) -Leaf)]> "
-}
-#>
