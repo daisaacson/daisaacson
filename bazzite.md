@@ -1,0 +1,76 @@
+# Bazzite
+
+[Bazzite](https://bazzite.gg/) The next generation of Linux gaming
+
+## Install
+
+1. Disable BIOS SecureBoot temporarily (I don't trust VenToy)
+1. Installer
+    1. LUKS
+        > Sure, why not
+    1. BTRFS
+        > Yes please
+1. Reboot
+1. Enable Secure boot
+    > Might not have to do this, I think I was prompted on the 1st boot to enroll the key, but I still had my VenToy USB drive attached and I explicity skipped it
+    1. Run ```ujust enroll-secure-boot-key```
+    1. Run ```reboot```
+    1. Enroll key
+    1. Enable BIOS Secure Boot
+1. LUKS
+    1. Run ~~```ujust setup-luks-tpm-unlock```~~
+        > I don't think so. What is the point of having an encrypted drive if the key to unlock the drive is lost with the drive?
+
+## Apps
+
+Kinda confusing with all the layers of abstraction possible
+
+### FlatPaks
+
+[Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) Common GUI apps not bundled as part of the OS. Sandboxed, needs to be given permissions, though default permissions seem adequate. Parallell to Android or IOS apps.
+
+```bash
+flatpak install com.brave.Browser
+flatpak install com.google.Chrome
+flatpak install com.makemkv.MakeMKV
+flatpak install com.visualstudio.code
+flatpak install fr.handbrake.ghb
+flatpak install org.kde.gcompris
+flatpak install org.keepassxc.KeePassXC
+flatpak install org.libretro.RetroArch
+flatpak install org.signal.Signal
+```
+
+### Distorbox
+
+[Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) Parallell to WSL. Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
+
+## Gaming
+
+### Steam
+
+* Enable All Steam Games
+   > Steam > Settings > Compatibility 
+* Move Storage
+    > Defaults to ```~/.local/share/Steam```, create a BTRFS sub volume for games to share across user profiles?
+
+    TODO
+
+### Lutris
+
+TODO
+
+### Epic Games
+
+TODO
+
+### GOG
+
+TODO
+
+### Blizard Games
+
+TODO
+
+### Emulators
+ > Discover > RetroArch
