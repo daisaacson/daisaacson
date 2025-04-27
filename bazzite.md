@@ -1,6 +1,14 @@
 # Bazzite
 
-[Bazzite](https://bazzite.gg/) The next generation of Linux gaming
+[Bazzite](https://bazzite.gg/) The next generation of Linux gaming.
+
+My goal is to get off of Windows 11 before Windows Copilot, Windows Recall Windows Live accounuts are ubiquitous and can't be removed/avoided.
+
+First get my laptop converted to the point where I don't need to use my PC, then convert my PC.
+* Framework officially supports [Bazzite](https://knowledgebase.frame.work/en_us/officially-supported-vs-compatible-linux-distributions-ByVPFgyTs)
+    > This has been the best out of box laptop experiance I've ever had. Everything worked, including a docking station
+* PC has a GTX Nvidia card
+    > Not clear if GTX is supported officially, as it seems related distos focus on Radeon and RTX.
 
 ## Install
 
