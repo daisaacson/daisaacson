@@ -59,7 +59,11 @@ sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 
 #### Visual Studio Code
 
-Run commands on th host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
+Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
+
+Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#support-for-language-extension) on the host system
+* Powershell TODO
+* Python TODO
 
 ### Homebrew
 
