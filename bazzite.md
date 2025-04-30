@@ -62,8 +62,10 @@ sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
 
 Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#support-for-language-extension) on the host system
-* Powershell TODO
-* Python TODO
+* helm TODO 📝
+* kubectl TODO 📝
+* Powershell TODO 📝
+* Python TODO 📝
 
 ### Homebrew
 
@@ -93,23 +95,23 @@ Parallell to WSL.
 * Move Storage
     > Defaults to ```~/.local/share/Steam```, create a BTRFS sub volume for games to share across user profiles?
 
-    TODO
+    TODO 📝
 
 ### Lutris
 
-TODO
+TODO 📝
 
 ### Epic Games
 
-TODO
+TODO 📝
 
 ### GOG
 
-TODO
+TODO 📝
 
 ### Blizard Games
 
-TODO
+TODO 📝
 
 ### Emulators
  > Discover > RetroArch
