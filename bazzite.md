@@ -61,6 +61,19 @@ sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 
 Run commands on th host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
 
+### Homebrew
+
+[Homebrew](https://docs.bazzite.gg/Installing_and_Managing_Software/Homebrew/) - Install applications intended to run inside of the terminal (CLI/TUI).
+Parallell to homebrew on Mac OS X.
+
+```bash
+brew install ansible
+brew install kubecolor
+brew install kubernetes-cli
+brew install python@3.13
+bbew install wakeonlan
+```
+
 ### Distorbox
 
 [Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) Parallell to WSL. Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
