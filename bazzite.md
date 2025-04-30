@@ -35,7 +35,7 @@ Kinda confusing with all the layers of abstraction possible. Here is what Bazzit
 
 ### FlatPaks
 
-[Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) Common GUI apps not bundled as part of the OS. Sandboxed, needs to be given permissions, though default permissions seem adequate. Parallell to Android or IOS apps.
+[Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) - Universal package format using a permissions-based model and should be used for most graphical applications. Parallell to Android or IOS apps.
 
 ```bash
 flatpak install com.brave.Browser
