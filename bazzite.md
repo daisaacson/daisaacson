@@ -49,6 +49,10 @@ flatpak install org.libretro.RetroArch
 flatpak install org.signal.Signal
 ```
 
+#### Visual Studio Code
+
+Run commands on th host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
+
 ### Distorbox
 
 [Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) Parallell to WSL. Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
