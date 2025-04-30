@@ -76,7 +76,9 @@ bbew install wakeonlan
 
 ### Distorbox
 
-[Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) Parallell to WSL. Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
+[Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) - Access to most Linux package managers for software that do not support Flatpak and Homebrew and for use as development boxes.
+Parallell to WSL.
+> Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
 
 ## Gaming
 
