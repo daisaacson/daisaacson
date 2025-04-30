@@ -49,6 +49,14 @@ flatpak install org.libretro.RetroArch
 flatpak install org.signal.Signal
 ```
 
+#### Signal
+
+Don't store the database key in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
+
+```bash
+sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
+```
+
 #### Visual Studio Code
 
 Run commands on th host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
