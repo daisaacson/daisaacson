@@ -51,7 +51,7 @@ flatpak install org.signal.Signal
 
 #### Signal
 
-Don't store the database key in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
+Store the database key encrypted in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
 
 ```bash
 sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
