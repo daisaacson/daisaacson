@@ -31,7 +31,7 @@ First get my laptop converted to the point where I don't need to use my PC, then
 
 ## Apps
 
-Kinda confusing with all the layers of abstraction possible
+Kinda confusing with all the layers of abstraction possible. Here is what Bazzite [suggests to manage software](https://docs.bazzite.gg/Installing_and_Managing_Software/)
 
 ### FlatPaks
 
