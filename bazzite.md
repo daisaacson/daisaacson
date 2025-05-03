@@ -101,17 +101,23 @@ Parallell to WSL.
 
 ### Lutris
 
-TODO 📝
+#### Blizard Games
+
+Failed to install 4x (2x using the exe and 2x using the yaml file from Lutrix). Each time 
+
+```
+wineserver: ../server/sock.c:1154: complete_async_poll: Assertion `output->count == signaled_count' failed.
+01d0:err:sync:RtlpWaitForCriticalSection section 00F8543C (null) wait timed out in thread 01d0, blocked by 0148, retrying (60 sec)
+...
+```
+
+1 time I got the error, but the installer complete and I was able to log in. However after login, I was unable to download gammes.
 
 ### Epic Games
 
 TODO 📝
 
 ### GOG
-
-TODO 📝
-
-### Blizard Games
 
 TODO 📝
 
