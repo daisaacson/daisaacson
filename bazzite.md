@@ -53,15 +53,12 @@ flatpak install org.signal.Signal
 
 #### Signal
 
-Store the database key encrypted in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
+* Store the database key encrypted in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
+* Grant Signall access to [session-bus](https://docs.flatpak.org/en/latest/sandbox-permissions.html) to communicate to kwallet6
 
 ```bash
-sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
+sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 --socket=session-bus org.signal.Signal
 ```
-
-TODO 📝
-
-I don't see an entry in kwalledmanager for Signal. Signal doesn't appear to be able to communicate to kwallet6d
 
 ```
 [2:0503/124201.568897:ERROR:object_proxy.cc(576)] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
