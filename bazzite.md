@@ -60,15 +60,6 @@ flatpak install org.signal.Signal
 sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 --socket=session-bus org.signal.Signal
 ```
 
-```
-[2:0503/124201.568897:ERROR:object_proxy.cc(576)] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
-[2:0503/124201.568921:ERROR:kwallet_dbus.cc(117)] Error contacting kwalletd6 (isEnabled)
-[2:0503/124201.569131:ERROR:object_proxy.cc(576)] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
-[2:0503/124201.569141:ERROR:kwallet_dbus.cc(86)] Error contacting klauncher to start kwalletd6
-[2:0503/124201.570353:ERROR:object_proxy.cc(576)] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: org.freedesktop.DBus.Error.ServiceUnknown
-[2:0503/124201.570369:ERROR:kwallet_dbus.cc(412)] Error contacting kwalletd6 (close)
-```
-
 #### Visual Studio Code
 
 Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
