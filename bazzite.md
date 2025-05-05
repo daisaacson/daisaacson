@@ -104,15 +104,13 @@ Parallell to WSL.
 
 #### Blizard Games
 
-Failed to install 4x (2x using the exe and 2x using the yaml file from Lutrix). Each time 
+Used the yaml file from [lutris](https://lutris.net/api/installers/battlenet-standard?format=json).
 
-```
-wineserver: ../server/sock.c:1154: complete_async_poll: Assertion `output->count == signaled_count' failed.
-01d0:err:sync:RtlpWaitForCriticalSection section 00F8543C (null) wait timed out in thread 01d0, blocked by 0148, retrying (60 sec)
-...
-```
+Installation failed has it had prevous attempting to use the Setup.exe directly.
 
-1 time I got the error, but the installer complete and I was able to log in. However after login, I was unable to download gammes.
+Use the ```Run EXE inside Wine prefix``` and re-ran the installer
+
+Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message.
 
 #### Open Rails
 
