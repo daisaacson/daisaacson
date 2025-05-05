@@ -114,6 +114,10 @@ wineserver: ../server/sock.c:1154: complete_async_poll: Assertion `output->count
 
 1 time I got the error, but the installer complete and I was able to log in. However after login, I was unable to download gammes.
 
+#### Open Rails
+
+The game engine loads, but launching into a scenario fails. M$XDA error about not being able to finding dependencies
+
 ### Epic Games
 
 TODO 📝
