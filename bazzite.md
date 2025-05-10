@@ -104,7 +104,7 @@ Parallell to WSL.
 
 #### Blizard Games
 
-Used the [yaml](https://lutris.net/api/installers/battlenet-standard?format=json) file from [lutris](https://lutris.net/).
+Used the [json](https://lutris.net/api/installers/battlenet-standard?format=json) file from [lutris](https://lutris.net/games/battlenet/).
 
 The installation will look like it froze, hang in there, the installation will eventually fail, don't fret.
 
