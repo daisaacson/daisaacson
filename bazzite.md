@@ -130,6 +130,12 @@ Used the [json](https://lutris.net/api/installers/gog-galaxy-windows?format=json
 
 The game engine loads, but launching into a scenario fails. M$XDA error about not being able to finding dependencies
 
+[Forum post](https://forums.lutris.net/t/open-rails-anyone/20998)
+
+Running winetricks from Lutris throws odd errors.
+
+Can't figure out how to get winetricks to work from cli.
+
 ### Epic Games
 
 TODO 📝 I don't think i have an Epic Games account
