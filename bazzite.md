@@ -104,13 +104,13 @@ Parallell to WSL.
 
 #### Blizard Games
 
-Used the yaml file from [lutris](https://lutris.net/api/installers/battlenet-standard?format=json).
+Used the [yaml](https://lutris.net/api/installers/battlenet-standard?format=json) file from [lutris](https://lutris.net/).
 
-The installation will look like it froze, hand in there, the installation will eventually fail.
+The installation will look like it froze, hang in there, the installation will eventually fail, don't fret.
 
 Use the ```Run EXE inside Wine prefix``` and re-ran the installer found in ```drive_c\Battle.net-Setup.exe```. Continue the installation.
 
-Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message.
+Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message while using ```GE-Proton```.
 
 Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proton-with-lutris/3846/3)
 
@@ -118,7 +118,9 @@ Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proto
 ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
 ```
 
-> Game > Configure > Runner options > Wine version Proton - Experimental
+Then update the game runner to use Proton Experimental
+
+> Game > Configure > Runner options > Wine version > Proton - Experimental
 
 #### Open Rails
 
