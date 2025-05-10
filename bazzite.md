@@ -122,6 +122,10 @@ Then update the game runner to use Proton Experimental
 
 > Game > Configure > Runner options > Wine version > Proton - Experimental
 
+#### GOG
+
+Used the [json](https://lutris.net/api/installers/gog-galaxy-windows?format=json) file from [lutris](https://lutris.net/games/gog-galaxy/).
+
 #### Open Rails
 
 The game engine loads, but launching into a scenario fails. M$XDA error about not being able to finding dependencies
@@ -129,10 +133,6 @@ The game engine loads, but launching into a scenario fails. M$XDA error about no
 ### Epic Games
 
 TODO 📝
-
-### GOG
-
-Used the [json](https://lutris.net/api/installers/gog-galaxy-windows?format=json) file from [lutris](https://lutris.net/games/gog-galaxy/).
 
 ### Emulators
  > Discover > RetroArch
