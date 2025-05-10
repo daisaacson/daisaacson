@@ -132,7 +132,7 @@ The game engine loads, but launching into a scenario fails. M$XDA error about no
 
 ### Epic Games
 
-TODO 📝
+TODO 📝 I don't think i have an Epic Games account
 
 ### Emulators
  > Discover > RetroArch
