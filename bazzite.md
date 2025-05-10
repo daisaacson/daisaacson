@@ -106,11 +106,19 @@ Parallell to WSL.
 
 Used the yaml file from [lutris](https://lutris.net/api/installers/battlenet-standard?format=json).
 
-Installation failed has it had prevous attempting to use the Setup.exe directly.
+The installation will look like it froze, hand in there, the installation will eventually fail.
 
-Use the ```Run EXE inside Wine prefix``` and re-ran the installer
+Use the ```Run EXE inside Wine prefix``` and re-ran the installer found in ```drive_c\Battle.net-Setup.exe```. Continue the installation.
 
 Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message.
+
+Create a symlink to Proton from Steam
+
+```bash
+ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
+```
+
+> Game > Configure > Runner options > Wine version Proton - Experimental
 
 #### Open Rails
 
