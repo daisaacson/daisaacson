@@ -112,7 +112,7 @@ Use the ```Run EXE inside Wine prefix``` and re-ran the installer found in ```dr
 
 Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message.
 
-Create a symlink to Proton from Steam
+Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proton-with-lutris/3846/3)
 
 ```bash
 ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
