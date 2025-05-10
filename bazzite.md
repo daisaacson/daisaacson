@@ -132,7 +132,7 @@ TODO 📝
 
 ### GOG
 
-TODO 📝
+Used the [json](https://lutris.net/api/installers/gog-galaxy-windows?format=json) file from [lutris](https://lutris.net/games/gog-galaxy/).
 
 ### Emulators
  > Discover > RetroArch
