@@ -134,5 +134,9 @@ The game engine loads, but launching into a scenario fails. M$XDA error about no
 
 TODO 📝 I don't think i have an Epic Games account
 
+### Riot Games
+
+TODO 📝
+
 ### Emulators
  > Discover > RetroArch
