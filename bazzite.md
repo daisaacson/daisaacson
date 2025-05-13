@@ -77,10 +77,13 @@ Parallell to homebrew on Mac OS X.
 
 ```bash
 brew install ansible
+brew isntall dysk
 brew install kubecolor
 brew install kubernetes-cli
+brew install ncdu
 brew install python@3.13
-bbew install wakeonlan
+brew isntall sqlite
+brew install wakeonlan
 ```
 
 ### Distorbox
