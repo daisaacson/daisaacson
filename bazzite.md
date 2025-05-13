@@ -112,13 +112,15 @@ Use the ```Run EXE inside Wine prefix``` and re-ran the installer found in ```dr
 
 Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message while using ```GE-Proton```.
 
-Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proton-with-lutris/3846/3)
+I have no idea how I got Lutris to run Proton Experimental, I thought it was this, but it definelty is not. The symlink was broken.
 
-```bash
-ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
-```
-
-Then update the game runner to use Proton Experimental
+> ~~Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proton-with-lutris/3846/3)~~
+> 
+> ```bash
+> #ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
+> ```
+> 
+> ~~Then update the game runner to use Proton Experimental~~
 
 > Game > Configure > Runner options > Wine version > Proton - Experimental
 
