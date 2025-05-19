@@ -2,7 +2,7 @@
 
 [Bazzite](https://bazzite.gg/) The next generation of Linux gaming.
 
-My goal is to get off of Windows 11 before Windows Copilot, Windows Recall Windows Live accounuts are ubiquitous and can't be removed/avoided.
+My goal is to get off of Windows 11 before Windows Copilot, Windows Recall and Windows Live accounuts are ubiquitous and can't be removed/avoided. Also when will WaaS (Windows as a Service) be a thing?
 
 First get my laptop converted to the point where I don't need to use my PC, then convert my PC.
 * Framework officially supports [Bazzite](https://knowledgebase.frame.work/en_us/officially-supported-vs-compatible-linux-distributions-ByVPFgyTs)
