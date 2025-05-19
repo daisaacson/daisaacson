@@ -97,7 +97,9 @@ Parallell to WSL.
 ### Steam
 
 * Enable All Steam Games
-   > Steam > Settings > Compatibility 
+   > Steam > Settings > Compatibility
+    * Enable Steam Play for all other titles
+    * Run other titles with ```Proton Experimental```
 * Move Storage
     > Defaults to ```~/.local/share/Steam```, create a BTRFS sub volume for games to share across user profiles?
 
