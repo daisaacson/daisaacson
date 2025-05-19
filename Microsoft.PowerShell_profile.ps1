@@ -10,7 +10,10 @@ if ( Get-Command Set-PSReadlineKeyHandler -ErrorAction SilentlyContinue ) {
 	Set-PSReadLineKeyHandler -Chord Ctrl+t -Function SwapCharacters
 }
 
+$GIT = "\\nas\home\Documents\GIT"
+
 Set-Alias -Name g     -Value git.exe
+Set-Alias -Name h     -Value helm.exe
 Set-Alias -Name jq    -Value ConvertTo-Json
 Set-Alias -Name k     -Value kubectl.exe
 Set-Alias -Name which -Value Get-Command
