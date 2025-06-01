@@ -29,6 +29,23 @@ First get my laptop converted to the point where I don't need to use my PC, then
     1. Run ~~```ujust setup-luks-tpm-unlock```~~
         > I don't think so. What is the point of having an encrypted drive if the key to unlock the drive is lost with the drive?
 
+## OS
+
+### Game Volume
+
+```bash
+sudo rmdir /var/games
+sudo btrfs subvolume create /var/games
+```
+
+* /var/games
+   * steam
+        * asdf
+   * lutris
+        * battlenet
+        * gog-galaxy
+
+
 ## Apps
 
 Kinda confusing with all the layers of abstraction possible. Here is what Bazzite [suggests to manage software](https://docs.bazzite.gg/Installing_and_Managing_Software/)
