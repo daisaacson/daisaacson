@@ -112,6 +112,15 @@ brew isntall sqlite
 brew install wakeonlan
 ```
 
+#### syncthing
+
+Mesh file sync utility. Bazzite Portal tries to confince you to install Resilio Sync, a free product that requires registration and licensing... no thanks.
+
+```shell
+brew install syncthing
+brew services start syncthing
+```
+
 ### Quadlet
 
 ### Distorbox
