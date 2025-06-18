@@ -52,6 +52,8 @@ Kinda confusing with all the layers of abstraction possible. Here is what Bazzit
 
 Flatpacks and Distrobox both make the $HOME folder available from the host to the sand box. Flatpacks and Distrobox have different $PATH variables than the host.
 
+Subheadings are in ranked order
+
 ### FlatPaks
 
 [Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) - Universal package format using a permissions-based model and should be used for most graphical applications. Parallell to Android or IOS apps.
@@ -87,6 +89,8 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 * Powershell TODO 📝
 * Python TODO 📝
 
+### ujust
+
 ### Homebrew
 
 [Homebrew](https://docs.bazzite.gg/Installing_and_Managing_Software/Homebrew/) - Install applications intended to run inside of the terminal (CLI/TUI).
@@ -103,11 +107,19 @@ brew isntall sqlite
 brew install wakeonlan
 ```
 
+#### syncthing
+
+### Quadlet
+
 ### Distorbox
 
 [Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) - Access to most Linux package managers for software that do not support Flatpak and Homebrew and for use as development boxes.
 Parallell to WSL.
 > Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
+
+### AppImage
+
+### rpm-ostree
 
 ## Gaming
 
