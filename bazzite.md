@@ -91,6 +91,11 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 
 ### ujust
 
+```shell
+ujust toggle-ssh
+ujust toggle-wol
+```
+
 ### Homebrew
 
 [Homebrew](https://docs.bazzite.gg/Installing_and_Managing_Software/Homebrew/) - Install applications intended to run inside of the terminal (CLI/TUI).
