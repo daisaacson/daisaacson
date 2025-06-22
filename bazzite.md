@@ -54,6 +54,8 @@ Flatpacks and Distrobox both make the $HOME folder available from the host to th
 
 Subheadings are in ranked order
 
+Subheadings are in ranked order
+
 ### FlatPaks
 
 [Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) - Universal package format using a permissions-based model and should be used for most graphical applications. Parallell to Android or IOS apps.
@@ -91,6 +93,11 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 
 ### ujust
 
+```shell
+ujust toggle-ssh
+ujust toggle-wol
+```
+
 ### Homebrew
 
 [Homebrew](https://docs.bazzite.gg/Installing_and_Managing_Software/Homebrew/) - Install applications intended to run inside of the terminal (CLI/TUI).
@@ -108,6 +115,13 @@ brew install wakeonlan
 ```
 
 #### syncthing
+
+Mesh file sync utility. Bazzite Portal tries to confince you to install Resilio Sync, a free product that requires registration and licensing... no thanks.
+
+```shell
+brew install syncthing
+brew services start syncthing
+```
 
 ### Quadlet
 
