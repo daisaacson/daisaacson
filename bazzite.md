@@ -45,7 +45,6 @@ sudo btrfs subvolume create /var/games
         * battlenet
         * gog-galaxy
 
-
 ## Apps
 
 Kinda confusing with all the layers of abstraction possible. Here is what Bazzite [suggests to manage software](https://docs.bazzite.gg/Installing_and_Managing_Software/)
@@ -122,6 +121,8 @@ Mesh file sync utility. Bazzite Portal tries to confince you to install Resilio 
 brew install syncthing
 brew services start syncthing
 ```
+
+Works well with KeePassXC, can have client open on multiple machines and after syncthing sync, KeePassXC detects the file change and reloads the file.
 
 ### Quadlet
 
