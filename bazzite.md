@@ -92,7 +92,13 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 ### ujust
 
 ```shell
+# Enable BTRFS Snapshots
+ujust configure-snapshots
+# Enable BTRFS Dedup
+just enable-deduplication
+# Enable SSH
 ujust toggle-ssh
+# Enable Wake-on-LAN
 ujust toggle-wol
 ```
 
