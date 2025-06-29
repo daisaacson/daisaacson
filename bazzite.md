@@ -93,8 +93,11 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 ### ujust
 
 ```shell
-ujust toggle-ssh
-ujust toggle-wol
+ujust bazzite-cli
+ujust configure-snapshots enable
+ujust enable-deduplication
+ujust toggle-ssh enable
+ujust toggle-wol enable
 ```
 
 ### Homebrew
