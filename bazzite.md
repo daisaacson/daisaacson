@@ -68,7 +68,6 @@ flatpak install fr.handbrake.ghb
 flatpak install org.kde.gcompris
 flatpak install org.keepassxc.KeePassXC
 flatpak install org.libretro.RetroArch
-flatpak install org.signal.Signal
 ```
 
 #### Signal
@@ -77,6 +76,7 @@ flatpak install org.signal.Signal
 * Grant Signall access to [session-bus](https://docs.flatpak.org/en/latest/sandbox-permissions.html) to communicate to kwallet6
 
 ```bash
+flatpak install org.signal.Signal
 sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 --socket=session-bus org.signal.Signal
 ```
 
