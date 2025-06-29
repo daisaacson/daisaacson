@@ -94,9 +94,13 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 
 ```shell
 ujust bazzite-cli
-ujust configure-snapshots enable
-ujust enable-deduplication
+# Enable BTRFS Snapshots
+ujust configure-snapshots
+# Enable BTRFS Dedup
+just enable-deduplication
+# Enable SSH
 ujust toggle-ssh enable
+# Enable Wake-on-LAN
 ujust toggle-wol enable
 ```
 
