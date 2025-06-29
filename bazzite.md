@@ -124,6 +124,8 @@ brew install wakeonlan
 
 Mesh file sync utility. Bazzite Portal tries to confince you to install Resilio Sync, a free product that requires registration and licensing... no thanks.
 
+Currently I'm running with brew, looking to convert a container running in podman.
+
 ```shell
 brew install syncthing
 brew services start syncthing
