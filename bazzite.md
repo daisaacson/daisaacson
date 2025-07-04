@@ -152,33 +152,25 @@ Parallell to WSL.
 * Enable All Steam Games
    > Steam > Settings > Compatibility
     * Enable Steam Play for all other titles
-    * Run other titles with ```Proton Experimental```
+    * Run other titles with ```Proton - Experimental```
 * Move Storage
-    > Defaults to ```~/.local/share/Steam```, create a BTRFS sub volume for games to share across user profiles?
+    > Defaults to ```~/.local/share/Steam```, create a [BTRFS sub volume for games](#game-volume) to share across user profiles?
 
     TODO 📝
 
 ### Lutris
 
+Some games seem to work better with [Steam's](#steam) ```Proton - Experimental```. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.
+
 #### Blizard Games
 
 Used the [json](https://lutris.net/api/installers/battlenet-standard?format=json) file from [lutris](https://lutris.net/games/battlenet/).
 
-The installation will look like it froze, hang in there, the installation will eventually fail, don't fret.
+The installation will look like it froze, hang in there, the installation will eventually fail, don't fret, it'll be fixed in the next step.
 
 Use the ```Run EXE inside Wine prefix``` and re-ran the installer found in ```drive_c\Battle.net-Setup.exe```. Continue the installation.
 
-Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message while using ```GE-Proton```.
-
-I have no idea how I got Lutris to run Proton Experimental, I thought it was this, but it definelty is not. The symlink was broken.
-
-> ~~Create a symlink to Proton from Steam[*](https://forums.lutris.net/t/using-proton-with-lutris/3846/3)~~
-> 
-> ```bash
-> #ln -s $HOME/.steam/steam/steamapps/common/Proton*/dist $HOME/.local/share/lutris/runners/wine/proton
-> ```
-> 
-> ~~Then update the game runner to use Proton Experimental~~
+Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/support/en/article/16531) error message while using ```GE-Proton```. Try ```Proton - Experimental```.
 
 > Game > Configure > Runner options > Wine version > Proton - Experimental
 
