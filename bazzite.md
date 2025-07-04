@@ -31,6 +31,24 @@ First get my laptop converted to the point where I don't need to use my PC, then
 
 ## OS
 
+With a 2 drive system and letting bazzite installer auto allocate drives, seemed to cause me issues. I had 1 BTRFS volume using both drives. Drive performance was horrible.
+* 512GB nvme
+* 2TB HDD and this is a cheap slow HDD.
+
+Validate some BTRFS settings and making sure there is enough space on the 512GB nvme
+
+```bash
+sudo btrfs filesystem show
+sudo btrfs filesystem df /var
+sudo btrfs filesystem usage /var
+```
+
+Undo the RAID1 volume ```Metadata``` and ```System```
+
+```bash
+sudo btrfs balance start -dconvert=single -mconvert=single -sconvert=single -f /var
+```
+
 ### Game Volume
 
 ```bash
@@ -38,12 +56,22 @@ sudo rmdir /var/games
 sudo btrfs subvolume create /var/games
 ```
 
+The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutrix](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
+
 * /var/games
    * steam
-        * asdf
+        * game A
+        * game B
+        * game C
    * lutris
-        * battlenet
-        * gog-galaxy
+        * userA
+            * battlenet
+            * gog-galaxy
+        * user B
+            * battlenet
+            * gog-galaxy
+
+
 
 ## Apps
 
