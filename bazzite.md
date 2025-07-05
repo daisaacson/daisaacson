@@ -77,6 +77,18 @@ sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
     sudo mount /dev/mapper/luks-abcd
     ```
 
+
+Add users to games group [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group)
+
+```bash
+grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
+for user in $(cat /etc/passwd | cut -d: -f1);
+do
+    sudo usermod -a -G games $user
+done
+```
+
+
 The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutrix](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
 
 * /var/games
