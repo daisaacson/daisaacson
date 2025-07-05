@@ -58,8 +58,24 @@ sudo btrfs device remove /dev/mapper/luks-abcd
 Setup new device
 
 ```bash
-sudo -a /dev/mapper/luks-abcd
+sudo wipefs -a /dev/mapper/luks-abcd
 sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
+```
+
+Mount can create subvolume
+
+```bash
+sudo mount /dev/mapper/luks-abcd /var/games
+sudo btrfs subvolume create /var/games/games
+sudo umount /var/games
+sudo btrfs filesystem show # Get the uuid of the data partition
+sudo vi /etc/fstab # Add entry
+sudo mount /var/games
+sudo chattr +C /var/games # Disable CoW
+# does it make sense to have nested subvolumes, I don't know, lets find out.
+sudo btrfs subvolume create /var/games/steam
+sudo btrfs subvolume create /var/games/lutris
+sudo chattr +C /var/games/steam # Disable CoW
 ```
 
 ### Game Volume
