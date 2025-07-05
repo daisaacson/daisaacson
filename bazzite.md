@@ -64,18 +64,18 @@ sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
 
 ### Game Volume
 
-If single disk
+* If single disk
 
-```bash
-sudo rmdir /var/games
-sudo btrfs subvolume create /var/games
-```
+    ```bash
+    sudo rmdir /var/games
+    sudo btrfs subvolume create /var/games
+    ```
 
-If second disk
+* If additional disk
 
-```bash
-sudo mount /dev/mapper/luks-abcd
-```
+    ```bash
+    sudo mount /dev/mapper/luks-abcd
+    ```
 
 The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutrix](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
 
