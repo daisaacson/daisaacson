@@ -98,12 +98,15 @@ First get my laptop converted to the point where I don't need to use my PC, then
 Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
 
 ```bash
+# add games group settings to /etc/group
 grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
+# add games group to all users
 for user in $(cat /etc/passwd | cut -d: -f1);
 do
     sudo usermod -a -G games $user
 done
 
+# use facls to maintaining games access to /var/games/steam
 sudo setfacl -m g:games:rwx /var/games/steam
 sudo setfacl -m g:games:rwx -d /var/games/steam
 ```
