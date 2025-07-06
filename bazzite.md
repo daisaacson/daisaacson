@@ -103,6 +103,9 @@ for user in $(cat /etc/passwd | cut -d: -f1);
 do
     sudo usermod -a -G games $user
 done
+
+sudo setfacl -m g:games:rwx /var/games/steam
+sudo setfacl -m g:games:rwx -d /var/games/steam
 ```
 
 
