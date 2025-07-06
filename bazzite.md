@@ -27,7 +27,7 @@ First get my laptop converted to the point where I don't need to use my PC, then
     1. Enable BIOS Secure Boot
 1. LUKS
     1. Run ~~```ujust setup-luks-tpm-unlock```~~
-        > I don't think so. What is the point of having an encrypted drive if the key to unlock the drive is lost with the drive?
+        > I don't think so? What is the point of having an encrypted drive if the key to unlock the drive is lost with the drive? To me, this seems like locking your front door and leaving the key under the welcome mat.
 
 ## OS
 
