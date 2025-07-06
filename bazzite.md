@@ -31,53 +31,6 @@ First get my laptop converted to the point where I don't need to use my PC, then
 
 ## OS
 
-With a 2 drive system and letting bazzite installer auto allocate drives, seemed to cause me issues. I had 1 BTRFS volume using both drives. Drive performance was horrible.
-* 512GB nvme
-* 2TB HDD and this is a cheap slow HDD.
-
-Validate some BTRFS settings and making sure there is enough space on the 512GB nvme
-
-```bash
-sudo btrfs filesystem show
-sudo btrfs filesystem df /var
-sudo btrfs filesystem usage /var
-```
-
-Undo the RAID1 volume ```Metadata``` and ```System```
-
-```bash
-sudo btrfs balance start -dconvert=single -mconvert=single -sconvert=single -f /var
-```
-
-Remove the device
-
-```bash
-sudo btrfs device remove /dev/mapper/luks-abcd
-```
-
-Setup new device
-
-```bash
-sudo wipefs -a /dev/mapper/luks-abcd
-sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
-```
-
-Mount can create subvolume
-
-```bash
-sudo mount /dev/mapper/luks-abcd /var/games
-sudo btrfs subvolume create /var/games/games
-sudo umount /var/games
-sudo btrfs filesystem show # Get the uuid of the data partition
-sudo vi /etc/fstab # Add entry
-sudo mount /var/games
-sudo chattr +C /var/games # Disable CoW
-# does it make sense to have nested subvolumes, I don't know, lets find out.
-sudo btrfs subvolume create /var/games/steam
-sudo btrfs subvolume create /var/games/lutris
-sudo chattr +C /var/games/steam # Disable CoW
-```
-
 ### Game Volume
 
 * If single disk
@@ -89,12 +42,60 @@ sudo chattr +C /var/games/steam # Disable CoW
 
 * If additional disk
 
+  With a 2 drive system and letting bazzite installer auto allocate drives, seemed to cause me issues. I had 1 BTRFS volume using both drives. Drive performance was horrible.
+
+  Undo combined volume:
+
+    * 512GB nvme
+    * 2TB HDD and this is a cheap slow HDD.
+
+        Validate some BTRFS settings and making sure there is enough space on the 512GB nvme
+
+        ```bash
+        sudo btrfs filesystem show
+        sudo btrfs filesystem df /var
+        sudo btrfs filesystem usage /var
+        ```
+
+        Undo the RAID1 volume ```Metadata``` and ```System```
+
+        ```bash
+        sudo btrfs balance start -dconvert=single -mconvert=single -sconvert=single -f /var
+        ```
+
+        Remove the device
+
+        ```bash
+        sudo btrfs device remove /dev/mapper/luks-abcd
+        ```
+
+    Setup new device
+
     ```bash
-    sudo mount /dev/mapper/luks-abcd
+    sudo wipefs -a /dev/mapper/luks-abcd
+    sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
+    ```
+
+    Mount can create subvolume
+
+    ```bash
+    sudo mount /dev/mapper/luks-abcd /var/games
+    sudo btrfs subvolume create /var/games/games
+    sudo umount /var/games
+    sudo btrfs filesystem show # Get the uuid of the data partition
+    sudo vi /etc/fstab # Add entry
+    sudo mount /var/games
+    # does it make sense to have nested subvolumes, I don't know, lets find out.
+    sudo btrfs subvolume create /var/games/steam
+    sudo btrfs subvolume create /var/games/lutris
+    sudo vi /etc/fstab # Add entries
+    sudo mount /var/games/lutris
+    sudo mount /var/games/steam
+    sudo chattr +C /var/games/steam # Disable CoW
     ```
 
 
-Add users to games group [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group)
+Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
 
 ```bash
 grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
