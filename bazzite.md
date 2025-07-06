@@ -76,57 +76,62 @@ First get my laptop converted to the point where I don't need to use my PC, then
     sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
     ```
 
-    Mount can create subvolume
+    Mount and create subvolumes
 
     ```bash
-    sudo mount /dev/mapper/luks-abcd /var/games
-    sudo btrfs subvolume create /var/games/games
-    sudo umount /var/games
+    sudo mount /dev/mapper/luks-abcd /mnt
+    sudo btrfs subvolume create /mnt/games
+    sudo btrfs subvolume create /mnt/users
+    sudo umount /mnt
     sudo btrfs filesystem show # Get the uuid of the data partition
-    sudo vi /etc/fstab # Add entry
+    sudo vi /etc/fstab # Add entries, mimicing /home and /var
     sudo mount /var/games
-    # does it make sense to have nested subvolumes, I don't know, lets find out.
-    sudo btrfs subvolume create /var/games/steam
-    sudo btrfs subvolume create /var/games/lutris
-    sudo vi /etc/fstab # Add entries
-    sudo mount /var/games/lutris
-    sudo mount /var/games/steam
-    sudo chattr +C /var/games/steam # Disable CoW
+    sudo chcon -t var_t /var/games
+    sudo mount /var/users
+    sudo chcon -t home_root_t /var/users
     ```
-
 
 Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
 
 ```bash
 # add games group settings to /etc/group
 grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
-# add games group to all users
+# create user's data directory and add games group to all users
 for user in $(cat /etc/passwd | cut -d: -f1);
 do
+    sudo mkdir /var/users/$user
+    sudo chown $user:$user /var/users/$user
+    sudo chmod 700  /var/users/$user
+    sudo chcon -t user_home_t /var/users/$user
     sudo usermod -a -G games $user
 done
 
 # use facls to maintaining games access to /var/games/steam
-sudo setfacl -m g:games:rwx /var/games/steam
-sudo setfacl -m g:games:rwx -d /var/games/steam
+sudo mkdir /var/games/{battlenet,steam}
+sudo setfacl -m g:games:rwx /var/games/{battlenet,steam}
+sudo setfacl -m g:games:rwx -d /var/games/{battlenet,steam}
 ```
 
-The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutris](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
+The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), and [Lutris](#lutris) clients like [battlenet](#blizard-games) and [gog](#gog).
 
 * /var/games
    * steam
         * game A
         * game B
         * game C
-   * lutris
+    * battlenet (via Z:\)
+    * gog (via Z:\)
+* /var/users
         * userA
-            * battlenet
-            * gog-galaxy
+            * Downloads
+            * Games
+                * battlenet (via C:\)
+                * gog-galaxy (via C:\)
         * user B
-            * battlenet
-            * gog-galaxy
-
-
+            * Downloads
+            * Games
+                * battlenet (via C:\)
+                * gog-galaxy (via C:\)
 
 ## Apps
 
@@ -237,9 +242,8 @@ Parallell to WSL.
     * Enable Steam Play for all other titles
     * Run other titles with ```Proton - Experimental```
 * Move Storage
-    > Defaults to ```~/.local/share/Steam```, create a [BTRFS sub volume for games](#game-volume) to share across user profiles?
-
-    TODO 📝
+    > Defaults to ```~/.local/share/Steam```.
+    With a [Game Volume](#game-volume) update to ```
 
 ### Lutris
 
