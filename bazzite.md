@@ -108,8 +108,7 @@ sudo setfacl -m g:games:rwx /var/games/steam
 sudo setfacl -m g:games:rwx -d /var/games/steam
 ```
 
-
-The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutrix](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
+The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), but not for [Lutris](#lutris). Wine only allows a prefix to be run by the owner. So I'm going to try to rely on BTRFS dedupliction to save on disk space.
 
 * /var/games
    * steam
