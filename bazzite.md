@@ -244,11 +244,11 @@ Parallell to WSL.
     * Run other titles with ```Proton - Experimental```
 * Move Storage
     > Defaults to ```~/.local/share/Steam```.
-    With a [Game Volume](#game-volume) update to ```
+    With a [Game Volume](#game-volume) add ```/var/games/steam``` and set as new default.
 
 ### Lutris
 
-Some games seem to work better with [Steam's](#steam) ```Proton - Experimental```. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.
+Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``` as the runner. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.  This may not be true, need to look into a ```umu``` command.
 
 #### Blizard Games
 
