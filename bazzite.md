@@ -85,6 +85,7 @@ First get my laptop converted to the point where I don't need to use my PC, then
     sudo umount /mnt
     sudo btrfs filesystem show # Get the uuid of the data partition
     sudo vi /etc/fstab # Add entries, mimicing /home and /var
+    sudo systemctl daemon-reload
     sudo mount /var/games
     sudo chcon -t var_t /var/games
     sudo mount /var/users
