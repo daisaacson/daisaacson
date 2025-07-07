@@ -66,20 +66,20 @@ First get my laptop converted to the point where I don't need to use my PC, then
         Remove the device
 
         ```bash
-        sudo btrfs device remove /dev/mapper/luks-abcd
+        sudo btrfs device remove /dev/mapper/luks-758365ce-1193-43db-ad74-2ed029ee7219
         ```
 
     Setup new device
 
     ```bash
     sudo wipefs -a /dev/mapper/luks-abcd
-    sudo mkfs.btrfs -L data /dev/mapper/luks-abcd
+    sudo mkfs.btrfs -L data /dev/mapper/luks-758365ce-1193-43db-ad74-2ed029ee7219
     ```
 
     Mount and create subvolumes
 
     ```bash
-    sudo mount /dev/mapper/luks-abcd /mnt
+    sudo mount /dev/mapper/luks-a758365ce-1193-43db-ad74-2ed029ee721 /mnt
     sudo btrfs subvolume create /mnt/games
     sudo btrfs subvolume create /mnt/users
     sudo umount /mnt
