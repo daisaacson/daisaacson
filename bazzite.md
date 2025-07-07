@@ -185,7 +185,7 @@ ujust bazzite-cli
 # Enable BTRFS Snapshots
 ujust configure-snapshots
 # Enable BTRFS Dedup
-just enable-deduplication
+ujust enable-deduplication
 # Enable SSH
 ujust toggle-ssh enable
 # Enable Wake-on-LAN
