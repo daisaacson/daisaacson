@@ -142,8 +142,6 @@ Flatpacks and Distrobox both make the $HOME folder available from the host to th
 
 Subheadings are in ranked order
 
-Subheadings are in ranked order
-
 ### FlatPaks
 
 [Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) - Universal package format using a permissions-based model and should be used for most graphical applications. Parallell to Android or IOS apps.
