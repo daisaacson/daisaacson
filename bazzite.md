@@ -149,9 +149,7 @@ Subheadings are in ranked order
 ```bash
 flatpak install com.brave.Browser
 flatpak install com.google.Chrome
-flatpak install com.makemkv.MakeMKV
 flatpak install com.visualstudio.code
-flatpak install fr.handbrake.ghb
 flatpak install org.kde.gcompris
 flatpak install org.keepassxc.KeePassXC
 flatpak install org.libretro.RetroArch
@@ -168,6 +166,15 @@ flatpak override --user --filesystem=/var/users
 sudo flatpak override --filesystem=/var/users org.kde.gwenview
 # All users, all apps
 flatpak override --filesystem=/var/users
+```
+
+#### Handbrake/MakeMKV
+
+```bash
+flatpak install com.makemkv.MakeMKV
+flatpak install fr.handbrake.ghb
+flatpak override --user --filesystem=/var/users/${USER}/v com.makemkv.MakeMKV
+flatpak override --user --filesystem=/var/users/${USER}/v fr.handbrake.ghb
 ```
 
 #### Signal
