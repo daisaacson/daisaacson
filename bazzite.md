@@ -165,8 +165,12 @@ flatpak install org.libretro.RetroArch
 * Grant Signall access to [session-bus](https://docs.flatpak.org/en/latest/sandbox-permissions.html) to communicate to kwallet6
 
 ```bash
+# install
 flatpak install org.signal.Signal
-sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 --socket=session-bus org.signal.Signal
+# user settings
+flatpak override --user --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
+# system settings
+sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 ```
 
 #### Visual Studio Code
