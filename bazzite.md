@@ -120,19 +120,19 @@ The intent is to be able to share as much of the Game installs as possible for a
         * game A
         * game B
         * game C
-    * battlenet (via Z:\)
-    * gog (via Z:\)
+    * battlenet (data via Z:\)
+    * gog (data via Z:\)
 * /var/users
         * userA
             * Downloads
             * Games
-                * battlenet (via C:\)
-                * gog-galaxy (via C:\)
+                * battlenet (client via C:\)
+                * gog-galaxy (client via C:\)
         * user B
             * Downloads
             * Games
-                * battlenet (via C:\)
-                * gog-galaxy (via C:\)
+                * battlenet client (via C:\)
+                * gog-galaxy client (via C:\)
 
 ## Apps
 
