@@ -157,6 +157,19 @@ flatpak install org.keepassxc.KeePassXC
 flatpak install org.libretro.RetroArch
 ```
 
+grant access to other files using `flatpak override`
+
+```bash
+# Per user app
+flatpak override --user --filesystem=/var/users org.kde.gwenview
+# All apps per user
+flatpak override --user --filesystem=/var/users
+# All user app
+sudo flatpak override --filesystem=/var/users org.kde.gwenview
+# All users, all apps
+flatpak override --filesystem=/var/users
+```
+
 #### Signal
 
 * Store the database key encrypted in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
@@ -228,8 +241,15 @@ Works well with KeePassXC, can have client open on multiple machines and after s
 ### Distorbox
 
 [Distrobox](https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/) - Access to most Linux package managers for software that do not support Flatpak and Homebrew and for use as development boxes.
-Parallell to WSL.
+Parallell to WSL. Distrobox is a wrapper for `podman`.
 > Using for python scripts where libraries aren't installed locally and no compatilbe wheel files available via pip. Kinda annoying I need another environment to maintain, kinda nice that it doesn't pollute my main distro.
+
+#### Python
+
+```bash
+distrobox create --name fedora-toolbox-py --image quay.io/fedora/fedora-toolbox:41 --volume /var/users:/var/users
+distrobox enter fedora-toolbox-py
+```
 
 ### AppImage
 
