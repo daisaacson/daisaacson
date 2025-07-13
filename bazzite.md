@@ -115,14 +115,18 @@ sudo setfacl -m g:games:rwx -d /var/games/{battlenet,steam}
 
 The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), and [Lutris](#lutris) clients like [battlenet](#blizard-games) and [gog](#gog).
 
-* /var/games
+* /var/games (2TB HDD, slow)
    * steam
-        * game A
-        * game B
-        * game C
+        * counter strike
+        * half-life
     * battlenet (data via Z:\)
+        * starcraft
+        * starcarft 2
     * gog (data via Z:\)
-* /var/users
+        * myst
+        * myst II
+        * riven
+* /var/users (512GB nVME, fast)
         * userA
             * Downloads
             * Games
