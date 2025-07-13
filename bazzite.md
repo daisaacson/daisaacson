@@ -173,8 +173,8 @@ flatpak override --filesystem=/var/users
 ```bash
 flatpak install com.makemkv.MakeMKV
 flatpak install fr.handbrake.ghb
-flatpak override --user --filesystem=/var/users/${USER}/v com.makemkv.MakeMKV
-flatpak override --user --filesystem=/var/users/${USER}/v fr.handbrake.ghb
+flatpak override --user --filesystem=/var/users/${USER}/tmp/v com.makemkv.MakeMKV
+flatpak override --user --filesystem=/var/users/${USER}/tmp/v fr.handbrake.ghb
 ```
 
 #### Signal
