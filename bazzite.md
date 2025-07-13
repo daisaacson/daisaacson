@@ -162,7 +162,6 @@ flatpak install org.libretro.RetroArch
 #### Signal
 
 * Store the database key encrypted in [kwallet6](https://github.com/flathub/org.signal.Signal?tab=readme-ov-file#options)
-* Grant Signall access to [session-bus](https://docs.flatpak.org/en/latest/sandbox-permissions.html) to communicate to kwallet6
 
 ```bash
 # install
