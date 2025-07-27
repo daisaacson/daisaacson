@@ -280,7 +280,7 @@ distrobox enter fedora-toolbox-py
 
 ### Lutris
 
-Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``` as the runner. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.  This may not be true, need to look into a ```umu``` command.
+Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``` as the runner. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.  This may not be true, need to look into a ```umu``` command. 
 
 #### Blizard Games
 
