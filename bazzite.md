@@ -5,6 +5,7 @@
 My goal is to get off of Windows 11 before Windows Copilot, Windows Recall and Windows Live accounuts are ubiquitous and can't be removed/avoided. Also when will WaaS (Windows as a Service) be a thing?
 
 First get my laptop converted to the point where I don't need to use my PC, then convert my PC.
+
 * Framework officially supports [Bazzite](https://knowledgebase.frame.work/en_us/officially-supported-vs-compatible-linux-distributions-ByVPFgyTs)
     > This has been the best out of box laptop experiance I've ever had. Everything worked, including a docking station
 * PC has a GTX Nvidia card
@@ -46,28 +47,28 @@ First get my laptop converted to the point where I don't need to use my PC, then
 
   Undo combined volume:
 
-    * 512GB nvme
-    * 2TB HDD and this is a cheap slow HDD.
+  * 512GB nvme
+  * 2TB HDD and this is a cheap slow HDD.
 
-        Validate some BTRFS settings and making sure there is enough space on the 512GB nvme
+      Validate some BTRFS settings and making sure there is enough space on the 512GB nvme
 
-        ```bash
-        sudo btrfs filesystem show
-        sudo btrfs filesystem df /var
-        sudo btrfs filesystem usage /var
+      ```bash
+      sudo btrfs filesystem show
+      sudo btrfs filesystem df /var
+      sudo btrfs filesystem usage /var
         ```
 
-        Undo the RAID1 volume ```Metadata``` and ```System```
+      Undo the RAID1 volume ```Metadata``` and ```System```
 
-        ```bash
-        sudo btrfs balance start -dconvert=single -mconvert=single -sconvert=single -f /var
-        ```
+      ```bash
+      sudo btrfs balance start -dconvert=single -mconvert=single -sconvert=single -f /var
+      ```
 
-        Remove the device
+      Remove the device
 
-        ```bash
-        sudo btrfs device remove /dev/mapper/luks-758365ce-1193-43db-ad74-2ed029ee7219
-        ```
+      ```bash
+      sudo btrfs device remove /dev/mapper/luks-758365ce-1193-43db-ad74-2ed029ee7219
+      ```
 
     Setup new device
 
@@ -116,27 +117,27 @@ sudo setfacl -m g:games:rwx -d /var/games/{battlenet,steam}
 The intent is to be able to share as much of the Game installs as possible for a multi user PC. This should be doable with [Steam](#steam), and [Lutris](#lutris) clients like [battlenet](#blizard-games) and [gog](#gog).
 
 * /var/games (2TB HDD, slow)
-   * steam
-        * counter strike
-        * half-life
-    * battlenet (data via Z:\)
-        * starcraft
-        * starcarft 2
-    * gog (data via Z:\)
-        * myst
-        * myst II
-        * riven
+  * steam
+    * counter strike
+    * half-life
+  * battlenet (data via Z:\)
+    * starcraft
+    * starcarft 2
+  * gog (data via Z:\)
+    * myst
+    * myst II
+    * riven
 * /var/users (512GB nVME, fast)
-        * userA
-            * Downloads
-            * Games
-                * battlenet (client via C:\)
-                * gog-galaxy (client via C:\)
-        * user B
-            * Downloads
-            * Games
-                * battlenet client (via C:\)
-                * gog-galaxy client (via C:\)
+  * userA
+    * Downloads
+    * Games
+      * battlenet (client via C:\)
+      * gog-galaxy (client via C:\)
+  * user B
+    * Downloads
+    * Games
+      * battlenet client (via C:\)
+      * gog-galaxy client (via C:\)
 
 ## Apps
 
@@ -199,6 +200,7 @@ sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
 
 Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#support-for-language-extension) on the host system
+
 * helm TODO 📝
 * kubectl TODO 📝
 * Powershell TODO 📝
@@ -271,16 +273,16 @@ distrobox enter fedora-toolbox-py
 ### Steam
 
 * Enable All Steam Games
-   > Steam > Settings > Compatibility
-    * Enable Steam Play for all other titles
-    * Run other titles with ```Proton - Experimental```
+  > Steam > Settings > Compatibility
+  * Enable Steam Play for all other titles
+  * Run other titles with ```Proton - Experimental```
 * Move Storage
-    > Defaults to ```~/.local/share/Steam```.
-    With a [Game Volume](#game-volume) add ```/var/games/steam``` and set as new default.
+  > Defaults to ```~/.local/share/Steam```.
+  With a [Game Volume](#game-volume) add ```/var/games/steam``` and set as new default.
 
 ### Lutris
 
-Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``` as the runner. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.  This may not be true, need to look into a ```umu``` command. 
+Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``` as the runner. To get the ```Proton - Experimental```, you need to install a [Steam](#steam) game that requires it. For me it was ```AoE 4```.  This may not be true, need to look into a ```umu``` command.
 
 #### Blizard Games
 
@@ -317,4 +319,5 @@ TODO 📝 I don't think i have an Epic Games account
 TODO 📝
 
 ### Emulators
- > Discover > RetroArch
+
+> Discover > RetroArch
