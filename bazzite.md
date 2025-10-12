@@ -88,14 +88,24 @@ First get my laptop converted to the point where I don't need to use my PC, then
     sudo vi /etc/fstab # Add entries, mimicing /home and /var
     sudo systemctl daemon-reload
     sudo mount /var/games
-    sudo chcon -t var_t /var/games
     sudo mount /var/users
-    sudo chcon -t home_root_t /var/users
     ```
 
 Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
 
 ```bash
+# setup SELINUX /var/games
+sudo semanage fcontext -a -t var_t "/var/games"
+sudo semanage fcontext -a -t games_data_t "/var/games/[^/]+"
+sudo semanage fcontext -a -t snapperd_data_t "/var/games/\.snapshots(/.*)?"
+sudo restorecon -Rv /var/games
+
+# setup SELINUX /var/users
+sudo semanage fcontext -a -t home_root_t "/var/users"
+sudo semanage fcontext -a -t user_home_dir_t "/var/users/[^/]+"
+sudo semanage fcontext -a -t snapperd_data_t "/var/users/\.snapshots(/.*)?"
+sudo restorecon -Rv /var/users
+
 # add games group settings to /etc/group
 grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
 # create user's data directory and add games group to all users
@@ -104,7 +114,6 @@ do
     sudo mkdir /var/users/$user
     sudo chown $user:$user /var/users/$user
     sudo chmod 700  /var/users/$user
-    sudo chcon -t user_home_t /var/users/$user
     sudo usermod -a -G games $user
 done
 
