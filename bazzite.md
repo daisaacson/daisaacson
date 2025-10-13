@@ -11,6 +11,10 @@ First get my laptop converted to the point where I don't need to use my PC, then
 * PC has a GTX Nvidia card
     > Not clear if GTX is supported officially, as it seems related distos focus on Radeon and RTX.
 
+    GTX seems to be working fine
+
+    > What about gsync?
+
 ## Install
 
 1. Disable BIOS SecureBoot temporarily (I don't trust VenToy)
@@ -91,8 +95,6 @@ First get my laptop converted to the point where I don't need to use my PC, then
     sudo mount /var/users
     ```
 
-Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
-
 ```bash
 # setup SELINUX /var/games
 sudo semanage fcontext -a -t var_t "/var/games"
@@ -105,7 +107,11 @@ sudo semanage fcontext -a -t home_root_t "/var/users"
 sudo semanage fcontext -a -t user_home_dir_t "/var/users/[^/]+"
 sudo semanage fcontext -a -t snapperd_data_t "/var/users/\.snapshots(/.*)?"
 sudo restorecon -Rv /var/users
+```
 
+Add users to games group using [work around](https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group).
+
+```bash
 # add games group settings to /etc/group
 grep -E '^games:' /usr/lib/group | sudo tee -a /etc/group
 # create user's data directory and add games group to all users
