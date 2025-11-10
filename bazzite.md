@@ -342,7 +342,8 @@ TODO 📝
 Doing it [by hand](https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/Incremental_Backup.html#Doing_it_by_hand.2C_step_by_step) for now
 
 ```bash
-sudo mount -o noatime,lazytime,commit=120,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme /mnt
+sudo cryptsetup luksOpen /dev/sdb1 nvme
+sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme /mnt
 # Bootstrap
 #sudo btrfs send /var/users/.snapshots/65/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
 
@@ -351,7 +352,10 @@ sudo mv /mnt/backups/ws0/users/{snapshot,old}
 echo "create new local snapper snapshots"
 echo "get old and new snapshod IDs"
 # UPDATE SNAPSHOT IDs
-sudo btrfs send -p /var/users/.snapshots/65/snapshot /var/users/.snapshots/68/snapshot | sudo btrfs receive /mnt/backups/ws0/users/
+sudo btrfs send -p /var/users/.snapshots/65/snapshot /var/users/.snapshots/68/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
 echo "delete previous snapper snapshot and old backup snapthot"
 sudo btrfs subvolume snapshot -r /mnt/backups/ws0/users/snapshot /mnt/backups/.snapshots/ws0-users-$(date +%Y%m%d-%H%M%S)
+
+sudo umount /mnt
+sudo cryptsetup luksClose nvme
 ```
