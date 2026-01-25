@@ -284,6 +284,8 @@ distrobox enter fedora-toolbox-py
 
 ### podman
 
+Default volume location is `~/.local/share/containers/storage/volumes`
+
 #### ollama
 
 ```shell
