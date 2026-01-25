@@ -224,7 +224,6 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 ### ujust
 
 ```shell
-ujust bazzite-cli
 # Enable BTRFS Snapshots
 ujust configure-snapshots
 # Enable BTRFS Dedup
