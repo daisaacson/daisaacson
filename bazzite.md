@@ -283,6 +283,16 @@ distrobox enter fedora-toolbox-py
 
 ### rpm-ostree
 
+### podman
+
+#### ollama
+
+```shell
+sudo setsebool -P container_use_devices true
+podman run -d --device nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+podman exec -it ollama ollama run llama3.2
+```
+
 ## Gaming
 
 ### Steam
