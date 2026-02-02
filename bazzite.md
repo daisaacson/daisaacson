@@ -300,6 +300,12 @@ podman exec -it ollama ollama run llama3.2
 podman run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 ```
 
+#### anythingllm
+
+```shell
+podman run -d -p 3001:3001 -v anythingllm-storage:/app/server/storage -e STORAGE_DIR="/app/server/storage" mintplexlabs/anythingllm
+```
+
 ## Gaming
 
 ### Steam
