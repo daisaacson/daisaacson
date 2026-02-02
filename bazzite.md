@@ -290,7 +290,7 @@ Default volume location is `~/.local/share/containers/storage/volumes`
 
 ```shell
 sudo setsebool -P container_use_devices true
-podman run -d --device nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+podman run -d --device nvidia.com/gpu=all -p 11434:11434 -v ollama:/root/.ollama --name ollama ollama/ollama
 podman exec -it ollama ollama run llama3.2
 ```
 
@@ -303,7 +303,7 @@ podman run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-
 #### anythingllm
 
 ```shell
-podman run -d -p 3001:3001 -v anythingllm-storage:/app/server/storage -e STORAGE_DIR="/app/server/storage" mintplexlabs/anythingllm
+podman run -d -p 3001:3001 -v anythingllm-storage:/app/server/storage -e STORAGE_DIR="/app/server/storage" --name anythingllm mintplexlabs/anythingllm
 ```
 
 ## Gaming
