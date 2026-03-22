@@ -1,0 +1,48 @@
+description: GOG v2.0.94.27
+game_slug: gog-galaxy
+gogslug: ''
+humblestoreid: ''
+installer_slug: gog-galaxy-windows
+name: GOG Galaxy
+notes: "cloud synchronization = YES\r\n\r\nIt requires assigning a game directory\
+  \ outside the prefix, preferably the same directory as Lutris. /Games/gog\r\n\r\n\
+  PROTON-GE + UMU"
+runner: wine
+script:
+  files:
+  - galaxy: https://content-system.gog.com/open_link/download?path=/open/galaxy/client/setup_galaxy_2.0.94.27.exe
+  game:
+    args: /runWithoutUpdating /deelevated
+    exe: drive_c/Program Files (x86)/GOG Galaxy/GalaxyClient.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      name: create_prefix
+      prefix: $GAMEDIR
+  - task:
+      executable: galaxy
+      name: wineexec
+      prefix: $GAMEDIR
+  - task:
+      app: mfc140
+      name: winetricks
+      prefix: $GAMEDIR
+  - task:
+      app: corefonts
+      name: winetricks
+      prefix: $GAMEDIR
+  - task:
+      app: dotnet48
+      name: winetricks
+      prefix: $GAMEDIR
+  - task:
+      app: win10
+      name: winetricks
+      prefix: $GAMEDIR
+  wine:
+    overrides:
+      libglesv2: disabled
+slug: gog-galaxy-windows
+steamid: null
+version: Windows
+year: 2014

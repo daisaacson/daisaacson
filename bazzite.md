@@ -324,7 +324,7 @@ Some games seem to work better with [Steam's](#steam) ```Proton - Experimental``
 
 #### Blizard Games
 
-Used the [json](https://lutris.net/api/installers/battlenet-standard?format=json) file from [lutris](https://lutris.net/games/battlenet/).
+Used the [yaml](linux/lutris/battlenet-standard.yaml) file from [lutris](https://lutris.net/games/battlenet/).
 
 The installation will look like it froze, hang in there, the installation will eventually fail, don't fret, it'll be fixed in the next step.
 
@@ -336,7 +336,7 @@ Was able to login, however getting an [BLZBNTBNA00000005](https://us.battle.net/
 
 #### GOG
 
-Used the [json](https://lutris.net/api/installers/gog-galaxy-windows?format=json) file from [lutris](https://lutris.net/games/gog-galaxy/).
+Used the [yaml](linux/lutris/gog-galaxy-windows.yaml) file from [lutris](https://lutris.net/games/gog-galaxy/).
 
 #### Open Rails
 
@@ -347,6 +347,8 @@ The game engine loads, but launching into a scenario fails. M$XDA error about no
 Running winetricks from Lutris throws odd errors.
 
 Can't figure out how to get winetricks to work from cli.
+
+Trying the [yaml](linux/lutris/open-rails-161.yaml) file from [lutris](https://lutris.net/games/open-rails/)
 
 ### Epic Games
 

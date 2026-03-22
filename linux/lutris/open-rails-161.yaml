@@ -1,0 +1,34 @@
+description: ''
+game_slug: open-rails
+gogslug: ''
+humblestoreid: ''
+installer_slug: open-rails-161
+name: Open Rails
+notes: Game seems to work better in Proton. Not affiliated with Open Rails team, please
+  do not go to them  about support.
+runner: wine
+script:
+  files:
+  - file: https://github.com/openrails/openrails/releases/download/1.6.1/Open.Rails.1.6.1.zip
+  game:
+    arch: win64
+    exe: $GAMEDIR/OpenRails.exe
+    prefix: $GAMEDIR
+    working_dir: $GAMEDIR
+  installer:
+  - extract:
+      src: file
+  - task:
+      arch: win64
+      name: create_prefix
+  - chmodx: $GAMEDIR/OpenRails.exe
+  - task:
+      app: vcrun2019 xna40 dxvk dotnet472 corefonts
+      arch: win64
+      description: Installing Dependencies...
+      name: winetricks
+      silent: true
+slug: open-rails-161
+steamid: null
+version: 1.6.1
+year: 2009
