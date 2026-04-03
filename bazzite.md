@@ -367,19 +367,35 @@ TODO 📝
 Doing it [by hand](https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/Incremental_Backup.html#Doing_it_by_hand.2C_step_by_step) for now
 
 ```bash
+mnt="/mnt"
 sudo cryptsetup luksOpen /dev/sdb1 nvme
-sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme /mnt
+sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme $mnt
 # Bootstrap
 #sudo btrfs send /var/users/.snapshots/65/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
 
-# Send incremental
-sudo mv /mnt/backups/ws0/users/{snapshot,old}
-echo "create new local snapper snapshots"
-echo "get old and new snapshod IDs"
-# UPDATE SNAPSHOT IDs
-sudo btrfs send -p /var/users/.snapshots/65/snapshot /var/users/.snapshots/68/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
-echo "delete previous snapper snapshot and old backup snapthot"
-sudo btrfs subvolume snapshot -r /mnt/backups/ws0/users/snapshot /mnt/backups/.snapshots/ws0-users-$(date +%Y%m%d-%H%M%S)
+# Backup destination
+dst="${mnt}/backups/$(hostname -s)"
+
+# loop through configs to create snapshots of
+for config in home users; do
+  echo "== ${config} =="
+  # subvolume path
+  subvol=$(snapper list-configs | grep $config | awk '{print $3}')
+  # previous snapshot ID
+  old=$(sudo snapper -c $config list | grep m.2USB | tail -1 | cut -d' ' -f1)
+  # move old snapshot out of the way
+  sudo mv "${dst}/${config}"/{snapshot,old}
+  # create a new snapshot
+  new=$(sudo snapper -c $config create -p -d "m.2USB")
+  # Send delta to backup device
+  sudo btrfs send -p "${subvol}/.snapshots/${old}/snapshot" "${subvol}/.snapshots/${new}/snapshot" | pv | sudo btrfs receive "${dst}/${config}/"
+  # untag old snapshot
+  sudo snapper -c $config modify -d timeline -c timeline $old
+  # delete old snapshot from backup device
+  sudo btrfs subvolume delete "${dst}/${config}"/old
+  # create a snapshot of the snapshot on backup device
+  sudo btrfs subvolume snapshot -r "${dst}/${config}/snapshot" "${mnt}/backups/.snapshots/$(hostname -s)-${config}-$(date +%Y%m%d-%H%M%S)"
+done
 
 sudo umount /mnt
 sudo cryptsetup luksClose nvme
