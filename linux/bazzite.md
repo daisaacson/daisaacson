@@ -373,6 +373,7 @@ sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v
 # Bootstrap
 #sudo btrfs send /var/users/.snapshots/65/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
 
+tag="m.2USB"
 # Backup destination
 dst="${mnt}/backups/$(hostname -s)"
 
@@ -382,11 +383,11 @@ for config in home users; do
   # subvolume path
   subvol=$(snapper list-configs | grep $config | awk '{print $3}')
   # previous snapshot ID
-  old=$(sudo snapper -c $config list | grep m.2USB | tail -1 | cut -d' ' -f1)
+  old=$(sudo snapper -c $config list | grep "${tag}" | tail -1 | cut -d' ' -f1)
   # move old snapshot out of the way
   sudo mv "${dst}/${config}"/{snapshot,old}
   # create a new snapshot
-  new=$(sudo snapper -c $config create -p -d "m.2USB")
+  new=$(sudo snapper -c $config create -p -d "${tag}")
   # Send delta to backup device
   sudo btrfs send -p "${subvol}/.snapshots/${old}/snapshot" "${subvol}/.snapshots/${new}/snapshot" | pv | sudo btrfs receive "${dst}/${config}/"
   # untag old snapshot
