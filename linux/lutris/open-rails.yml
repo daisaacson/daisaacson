@@ -1,0 +1,35 @@
+files:
+- setup:
+    filename: OpenRails-1.5.1-Setup.exe
+    url: https://static.openrails.org/files/OpenRails-1.5.1-Setup.exe
+- bnsf: TS_STARTER_ROUTE_INSTALLER.exe
+    url: https://ts-files.com/files/TS_STARTER_ROUTE_INSTALLER.exe
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/OpenRails/OpenRails-1.5.1-Setup.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    description: Creating 64bit Wine prefix.
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+  name: winetricks
+  app: d3dx9
+- task:
+  name: winetricks
+  app: xna40
+- task:
+    description: 'Installing Open Rails'
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    description: 'Installing BNSF Starter Route'
+    executable: bnsf
+    name: wineexec
+    prefix: $GAMEDIR
+- task:
+    name: winekill
+    prefix: $GAMEDIR

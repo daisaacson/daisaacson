@@ -9,26 +9,35 @@ notes: Game seems to work better in Proton. Not affiliated with Open Rails team,
 runner: wine
 script:
   files:
-  - file: https://github.com/openrails/openrails/releases/download/1.6.1/Open.Rails.1.6.1.zip
+  - setup:
+      filename: Open.Rails.1.6.1.Setup.exe
+      url: https://github.com/openrails/openrails/releases/download/1.6.1/Open.Rails.1.6.1.Setup.exe
   game:
     arch: win64
     exe: $GAMEDIR/OpenRails.exe
     prefix: $GAMEDIR
     working_dir: $GAMEDIR
   installer:
-  - extract:
-      src: file
   - task:
       arch: win64
+      description: Creating 64bit Wine prefix.
       name: create_prefix
-  - chmodx: $GAMEDIR/OpenRails.exe
   - task:
-      app: vcrun2019 xna40 dxvk dotnet472 corefonts
+      app: dotnet48 d3dx11_43 pdh vcrun2019 xna40 dxvk corefonts
       arch: win64
       description: Installing Dependencies...
       name: winetricks
       silent: true
+  - task:
+      description: Installing Open Rails
+      executable: setup
+      name: wineexec
+      prefix: $GAMEDIR
+      silent: true
+  - task:
+      name: winekill
+      prefix: $GAMEDIR
 slug: open-rails-161
 steamid: null
-version: 1.6.1
+version: Installer
 year: 2009
