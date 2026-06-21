@@ -369,7 +369,7 @@ Doing it [by hand](https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/inde
 ```bash
 mnt="/mnt"
 sudo cryptsetup luksOpen /dev/sdb1 nvme
-sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme $mnt
+sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme ${mnt}
 # Bootstrap
 #sudo btrfs send /var/users/.snapshots/65/snapshot | pv | sudo btrfs receive /mnt/backups/ws0/users/
 
@@ -391,7 +391,9 @@ for config in home users; do
   # Send delta to backup device
   sudo btrfs send -p "${subvol}/.snapshots/${old}/snapshot" "${subvol}/.snapshots/${new}/snapshot" | pv | sudo btrfs receive "${dst}/${config}/"
   # untag old snapshot
-  sudo snapper -c $config modify -d timeline -c timeline $old
+  if [ $(( $? )) -eq 0 ]; then
+    sudo snapper -c $config modify -d timeline -c timeline $old
+  fi
   # delete old snapshot from backup device
   sudo btrfs subvolume delete "${dst}/${config}"/old
   # create a snapshot of the snapshot on backup device

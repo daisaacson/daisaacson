@@ -30,9 +30,8 @@ for snapshot in homes photo; do
   new=$(ssh ${server} sudo /usr/syno/sbin/synosharesnapshot list ${snapshot} desc=${tag} lock=true | tail -1)
   # send delta to backup device
   ssh ${server} sudo btrfs send --without-syno-features -p "${subvol}/${old}" "${subvol}/${new}" | pv | sudo btrfs receive "${dst}/${snapshot}/"
-  retval=$?
   # untag old snapshot
-  if [ $retval -eq 0]; then
+  if [ $(( $? )) -eq 0 ]; then
     ssh ${server} sudo /usr/syno/sbin/synosharesnapshot attr set ${snapshot} ${old} desc="" lock=false
   fi
 done
