@@ -5,9 +5,13 @@
 ### Remote
 
 ```bash
+mnt="/mnt"
+sudo cryptsetup luksOpen /dev/sdb1 nvme
+sudo mount -o noatime,lazytime,discard=async,compress-force=zstd:1,space_cache=v2,x-systemd.device-timeout=0 /dev/mapper/nvme ${mnt}
+
 server="nas"
 tag="WD750"
-dst="./backups/${server}"
+dst="${mnt}/backups/${server}"
 # Bootstrap
 #ssh ${server} sudo btrfs send --without-syno-features "${subvol}/${new}" | pv | sudo btrfs receive "${dst}/${snapshot}/"
 
