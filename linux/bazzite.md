@@ -403,3 +403,9 @@ done
 sudo umount /mnt
 sudo cryptsetup luksClose nvme
 ```
+
+### Backup usage
+
+```bash
+sudo btrfs filesystem du -s ${dst}/../.snapshots/*
+```

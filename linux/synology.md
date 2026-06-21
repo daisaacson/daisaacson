@@ -36,3 +36,11 @@ for snapshot in homes photo; do
   fi
 done
 ```
+
+### Backup usage
+
+```bash
+for snapshot in homes photo; do
+  sudo btrfs filesystem du -s ${dst}/${server}/${snapshot}/*
+done
+```
