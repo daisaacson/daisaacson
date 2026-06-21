@@ -166,9 +166,12 @@ Subheadings are in ranked order
 
 [Flatpak](https://docs.bazzite.gg/Installing_and_Managing_Software/Flatpak/) - Universal package format using a permissions-based model and should be used for most graphical applications. Parallell to Android or IOS apps.
 
+Default volume location is `~/.var/app/`
+
 ```bash
 flatpak install com.brave.Browser
 flatpak install com.google.Chrome
+flatpak install io.podman_desktop.PodmanDesktop
 flatpak install org.kde.gcompris
 flatpak install org.keepassxc.KeePassXC
 flatpak install org.libretro.RetroArch
