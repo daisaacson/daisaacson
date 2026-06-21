@@ -223,6 +223,9 @@ flatpak override --user --env=VSCODE_CREDENTIALS_STORE=kwallet6 com.vscodium.cod
 sudo flatpak override --env=VSCODE_CREDENTIALS_STORE=kwallet6 com.vscodium.codium
 ```
 
+##### Extensions
+
+* Continue, see setting up [Ollama](#ollama)
 
 Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.vscodium.codium#host-shell)
 
@@ -305,6 +308,14 @@ sudo setsebool -P container_use_devices true
 podman run -d --device nvidia.com/gpu=all -p 11434:11434 -v ollama:/root/.ollama --name ollama ollama/ollama
 podman exec -it ollama ollama run llama3.2
 ```
+
+* Continue [VSCodium](#vscodium) extension support based on extension instructions:
+
+  ```bash
+  podman exec -it ollama ollama pull llama3.1:8b
+  podman exec -it ollama ollama pull qwen2.5-coder:1.5b-base
+  podman exec -it ollama ollama pull nomic-embed-text:latest
+  ```
 
 #### open-webui
 
