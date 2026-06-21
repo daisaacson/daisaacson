@@ -169,7 +169,6 @@ Subheadings are in ranked order
 ```bash
 flatpak install com.brave.Browser
 flatpak install com.google.Chrome
-flatpak install com.visualstudio.code
 flatpak install org.kde.gcompris
 flatpak install org.keepassxc.KeePassXC
 flatpak install org.libretro.RetroArch
@@ -210,9 +209,19 @@ flatpak override --user --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 sudo flatpak override --env=SIGNAL_PASSWORD_STORE=kwallet6 org.signal.Signal
 ```
 
-#### Visual Studio Code
+#### VSCodium
 
-Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#use-host-shell-in-the-integrated-terminal)
+```bash
+# install
+flatpak install com.vscodium.codium
+# user settings
+flatpak override --user --env=VSCODE_CREDENTIALS_STORE=kwallet6 com.vscodium.codium
+# system settings
+sudo flatpak override --env=VSCODE_CREDENTIALS_STORE=kwallet6 com.vscodium.codium
+```
+
+
+Run commands on the host from inside the sandbox using [Shell Integrated Terminal](https://github.com/flathub/com.vscodium.codium#host-shell)
 
 Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-ov-file#support-for-language-extension) on the host system
 
