@@ -312,9 +312,9 @@ podman exec -it ollama ollama run llama3.2
 * Continue [VSCodium](#vscodium) extension support based on extension instructions:
 
   ```bash
-  podman exec -it ollama ollama pull llama3.1:8b
-  podman exec -it ollama ollama pull qwen2.5-coder:1.5b-base
-  podman exec -it ollama ollama pull nomic-embed-text:latest
+  podman exec -it ollama ollama pull llama3.1:8b             # Chat
+  podman exec -it ollama ollama pull qwen2.5-coder:1.5b-base # Autocomplete
+  podman exec -it ollama ollama pull nomic-embed-text:latest # Embeddings
   ```
 
 #### open-webui
