@@ -406,7 +406,7 @@ for config in home users; do
   # subvolume path
   subvol=$(snapper list-configs | grep $config | awk '{print $3}')
   # previous snapshot ID
-  old=$(sudo snapper -c $config list | grep "${tag}" | tail -1 | cut -d' ' -f1)
+  old=$(sudo snapper -c $config list | grep "${tag}" | tail -1 | awk '{print $1}')
   # move old snapshot out of the way
   sudo mv "${dst}/${config}"/{snapshot,old}
   # create a new snapshot
