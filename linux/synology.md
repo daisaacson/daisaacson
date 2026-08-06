@@ -35,12 +35,15 @@ for snapshot in homes photo; do
     ssh ${server} sudo /usr/syno/sbin/synosharesnapshot attr set ${snapshot} ${old} desc="" lock=false
   fi
 done
+
+sudo umount /mnt
+sudo cryptsetup luksClose nvme
 ```
 
 ### Backup usage
 
 ```bash
 for snapshot in homes photo; do
-  sudo btrfs filesystem du -s ${dst}/${server}/${snapshot}/*
+  sudo btrfs filesystem du -s ${dst}/${snapshot}/*
 done
 ```
