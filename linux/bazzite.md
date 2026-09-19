@@ -242,7 +242,9 @@ Support for [SDKs](https://github.com/flathub/com.visualstudio.code?tab=readme-o
 # Enable BTRFS Snapshots
 ujust configure-snapshots
 # Enable BTRFS Dedup
-ujust enable-deduplication
+ujust configure-beesd
+# Get Proton Plus
+ujust get-protonplus
 # Enable SSH
 ujust toggle-ssh enable
 # Enable Wake-on-LAN
