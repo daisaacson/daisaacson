@@ -7,6 +7,6 @@ After [eMudra's private key compromise](https://www.theregister.com/security/202
 ### Fedora
 
 ```shell
-sudo find /etc/pki/ca-trust/extracted/pem/directory-hash/ -type f -not -regex ".*\(ISRG\|GTS\|Sectigo\|Amazon\|Go_Daddy\|DigiCert\|Microsoft\|SSL.com\|IdenTrust\).*.pem" | sudo xargs -I {} mv {} /etc/pki/ca-trust/source/blocklist/
+find /etc/pki/ca-trust/extracted/pem/directory-hash/ -type f -not -regex ".*\(ISRG\|GTS\|Sectigo\|Amazon\|Go_Daddy\|DigiCert\|Microsoft\|SSL.com\|IdenTrust\).*.pem" | sudo xargs -I {} mv {} /etc/pki/ca-trust/source/blocklist/
 sudo update-ca-trust
 ```
