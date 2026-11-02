@@ -13,7 +13,6 @@ sudo update-ca-trust
 
 ### Debian
 
-
 ```shell
 sudo sed -i -E '/^[# !]/! { /ISRG|GTS|Sectigo|Amazon|Go_Daddy|DigiCert|Microsoft|SSL\.com|IdenTrust/! s/^/!/; }' /etc/ca-certificates.conf
 sudo update-ca-certificates
