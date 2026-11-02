@@ -10,3 +10,11 @@ After [eMudra's private key compromise](https://www.theregister.com/security/202
 find /etc/pki/ca-trust/extracted/pem/directory-hash/ -type f -not -regex ".*\(ISRG\|GTS\|Sectigo\|Amazon\|Go_Daddy\|DigiCert\|Microsoft\|SSL.com\|IdenTrust\).*.pem" | sudo xargs -I {} cp {} /etc/pki/ca-trust/source/blocklist/
 sudo update-ca-trust
 ```
+
+### Debian
+
+
+```shell
+sudo sed -i -E '/^[# !]/! { /ISRG|GTS|Sectigo|Amazon|Go_Daddy|DigiCert|Microsoft|SSL\.com|IdenTrust/! s/^/!/; }' /etc/ca-certificates.conf
+sudo update-ca-certificates
+```
